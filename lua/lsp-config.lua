@@ -1,17 +1,5 @@
 local nvim_lsp = require('lspconfig')
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
-
--- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { 
-	-- 'clangd', 
-	-- 'rust_analyzer', 
-	-- 'pyright', 
-	-- 'tsserver'
-	'intelephense'
-}
-
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
@@ -45,10 +33,37 @@ local on_attach = function(client, bufnr)
 
 end
 
-for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {
+-- Enable some language servers with the additional completion capabilities offered by nvim-cmp
+--local servers = { 
+	-- 'clangd', 
+	-- 'rust_analyzer', 
+	-- 'pyright', 
+	-- 'tsserver'
+--	'intelephense',
+--    'jsonls'
+--}
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
+-- intelehense | php
+nvim_lsp.intelephense.setup {
+    on_attach       = on_attach,
+    capabilities    = capabilities, 
+}
+
+-- jsonls
+local jsonls_capabilities = capabilities
+jsonls_capabilities.textDocument.completion.completionItem.snippetSupport = true
+nvim_lsp.jsonls.setup {
     on_attach = on_attach,
-    capabilities = capabilities,
-  }
-end
+    capabilities = jsonls_capabilities,
+    commands = {
+      Format = {
+        function()
+          vim.lsp.buf.range_formatting({},{0,0},{vim.fn.line("$"),0})
+        end
+      }
+    }
+}
 
