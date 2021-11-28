@@ -51,11 +51,22 @@ cmp.setup {
       end
     end, { "i", "s" }),
   },
-  sources = {
+  sources = cmp.config.sources({
     { name = 'nvim_lua' },
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
---    { name = 'buffer' },
-  },
+  }, {
+      { name = 'buffer' }
+  }),
 }
+
+--Setup buffer configuration (nvim-lua source only enables in Lua filetype).
+--vim.api.nvim_command([[
+
+--autocmd FileType = lua lua require'cmp'.setup.buffer = {
+--   sources = {
+--     { name = 'nvim_lua' },
+--     { name = 'buffer' },
+--   },
+--}
 
