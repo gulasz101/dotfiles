@@ -17,7 +17,7 @@
             "",
             "namespace ${1:Package\\Namespace};",
             "",
-            "class ${2:${TM_FILENAME_BASE}} ${3:|implements,extends|} ${4:ClassOrInterface}",
+            "class ${2:${TM_FILENAME_BASE}} ${3|implements,extends|} ${4:ClassOrInterface}",
             "{",
             "\t$0",
             "}",
