@@ -25,6 +25,23 @@
         ],
         "description": "Class definition"
     },
+    "interface …": {
+        "prefix": "interface",
+        "body": [
+            "<?php",
+            "",
+            "declare(strict_types=1);",
+            "",
+            "namespace ${1:Package\\Namespace};",
+            "",
+            "interface ${TM_FILENAME_BASE} ${3:implements}",
+            "{",
+            "\t$0",
+            "}",
+            ""
+        ],
+        "description": "Interface definition"
+    },
     "trait …": {
         "prefix": "trait",
         "body": [
@@ -57,19 +74,19 @@
         ],
         "description": "Paramater documentation"
     },
-    "function …": {
-        "prefix": "fun",
+    "method …": {
+        "prefix": "met",
         "body": [
-            "${1:public }function ${2:FunctionName}(${3:${4:${5:Type} }\\$${6:var}${7: = ${8:null}}})",
+            "${1|public,private,protected|} function ${2:FunctionName}(${3:${4:${5:Type} }\\$${6:var}${7: = ${8:null}}})",
             "{",
             "\t${0:# code...}",
             "}"
         ],
-        "description": "Function"
+        "description": "class method"
     },
     "arrow function ...": {
         "prefix": "fn",
-        "body" : [
+        "body": [
             "fn (${1:param type} ${2:paran type}) => ${0,# code...}"
         ],
         "description": "Arrow function."
