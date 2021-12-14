@@ -28,3 +28,6 @@ vim.api.nvim_command([[
   set expandtab
 ]])
 
+-- resize window
+vim.api.nvim_set_keymap('n', '<C-S-Left>', ':vertical resize +1<CR>', {noremap = true})
+

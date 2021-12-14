@@ -73,22 +73,71 @@ nvim_lsp.jsonls.setup {
 }
 
 ----------------------------------
+-- diagnosticls ------------------
+----------------------------------
+-- PHP - phpstan - formatting ----
+----------------------------------
 -- LUA - formatting --------------
 ----------------------------------
-nvim_lsp.efm.setup {
+vim.lsp.set_log_level("debug")
+nvim_lsp.diagnosticls.setup {
     capabilities = capabilities,
     on_attach = on_attach,
-    init_options = {documentFormatting = true},
-    filetypes = {"lua"},
-    settings = {
-        rootMarkers = {".git/"},
-        languages = {
-            lua = {
-                {
-                    formatCommand = "lua-format -i --no-keep-simple-function-one-line --no-break-after-operator --column-limit=150 --break-after-table-lb",
-                    formatStdin = true
-                }
+    filetypes = {"php", "lua"},
+    init_options = {
+        trace = {server = verbose},
+        linters = {
+            phpstan = {
+                sourceName = "phpstan",
+                command = "./vendor/bin/phpstan",
+                args = {"analyze", "--level", "max", "--error-format", "raw", "--no-progress", "%file"},
+                rootPatterns = {"composer.json", "composer.lock", "vendor", ".git"},
+                debounce = 100,
+                offsetLine = 0,
+                offsetColumn = 0,
+                formatLines = 1,
+                formatPattern = {"^[^:]+:(\\d+):(.*)(\\r|\\n)*$", {line = 1, message = 2}},
+                requiredFiles = {"./vendor/bin/phpstan"}
+            },
+            phpcs = {
+                sourceName = "phpcs",
+                command = "./vendor/bin/phpcs",
+                args = {"--standard=PSR12", "--report=emacs", "-s", "-"},
+                rootPatterns = {"composer.json", "composer.lock", "vendor", ".git"},
+                offsetLine = 0,
+                offsetLine = 0,
+                formatLines = 1,
+                formatPattern = {"^.*:(\\d+):(\\d+):\\s+(.*)\\s+-\\s+(.*)(\\r|\\n)*$", {line = 1, column = 2, message = 4, security = 3}},
+                securieties = {error = "error", warning = "warning"},
+                requiredFiles = {"./vendor/bin/phpcs"}
             }
-        }
+        },
+        filetypes = {php = {"phpstan", "phpcs"}},
+        formatters = {
+            luaformat = {
+                command = "lua-format",
+                args = {"-i", "--no-keep-simple-function-one-line", "--no-break-after-operator", "--column-limit=150", "--break-after-table-lb"}
+            },
+            ecs = {
+                command = "zsh",
+                args = {
+                    "-c",
+                    "() { tmpfile=$(mktemp /tmp/ecs.XXXXXX) && cat <&0 >> $tmpfile && ./vendor/bin/ecs check --fix -q $tmpfile && cat $tmpfile && rm $tmpfile }"
+                },
+                rootPatterns = {"composer.json", "composer.lock", "vendor", ".git"},
+                requiredFiles = {"./vendor/bin/ecs", "ecs.php"}
+            },
+            phpcsf = {
+                command = 'zsh',
+                args = {
+                    "-c",
+                    "() { tmpfile=$(mktemp /tmp/phpcsf.XXXXXX) && cat <&0 >> $tmpfile && ./vendor/bin/php-cs-fixer fix --rules=@PSR12 -q $tmpfile && cat $tmpfile && rm $tmpfile }"
+                },
+                rootPatterns = {"composer.json", "composer.lock", "vendor", ".git"},
+                requiredFiles = {"./vendor/bin/php-cs-fixer"}
+            }
+        },
+        formatFiletypes = {lua = "luaformat", php = "ecs"}
     }
 }
+

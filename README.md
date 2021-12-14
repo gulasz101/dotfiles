@@ -13,8 +13,10 @@ put license into file
 echo LICENSE >> $HOME/intelephense/licence.txt
 ```
 install server
+install diagnostic-languageserver for phpstan, phpcs, ecs support
 ```
 volta install intelephense
+volta install diagnostic-languageserver
 ```
 ## JSON
 ### json lsp (supports json, css, html)
@@ -22,20 +24,7 @@ volta install intelephense
 volta install vscode-langservers-extracted
 ```
 ## LUA
-### sumneko lua lsp
-#### for not not really working
-get latest build from here (fetch artifacts for latest build):
-https://github.com/sumneko/lua-language-server/actions/workflows/build.yml
-put build into your `$HOME/.bin`
-add `$HOME/.bin` to your `$PATH`
-and make $HOME/.bin/lua-language-server executable
+### Formatting
 ```sh
-cmod +x $HOME/.bin/lua-language-server
+volta install diagnostic-languageserver
 ```
-### efm-language-server for LUA formatting
-```sh
-brew install luarocks
-luarocks install --server=https://luarocks.org/dev luaformatter
-brew install efm-langserver
-```
-
