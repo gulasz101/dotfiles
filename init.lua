@@ -9,6 +9,7 @@ require "user.colorscheme"
 -- require('lsp-config') -- base lsp conf
 require "user.cmp"
 require "user.lsp"
+require "user.treesitter"
 
 -- require('cmp-config') -- base cmp conf
 -- require('lsp-handlers')
