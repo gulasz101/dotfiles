@@ -85,7 +85,7 @@ nvim_lsp.diagnosticls.setup {
     on_attach = on_attach,
     filetypes = {"php", "lua"},
     init_options = {
-        trace = {server = verbose},
+        trace = {server = "verbose"},
         linters = {
             phpstan = {
                 sourceName = "phpstan",
@@ -104,7 +104,6 @@ nvim_lsp.diagnosticls.setup {
                 command = "./vendor/bin/phpcs",
                 args = {"--standard=PSR12", "--report=emacs", "-s", "-"},
                 rootPatterns = {"composer.json", "composer.lock", "vendor", ".git"},
-                offsetLine = 0,
                 offsetLine = 0,
                 formatLines = 1,
                 formatPattern = {"^.*:(\\d+):(\\d+):\\s+(.*)\\s+-\\s+(.*)(\\r|\\n)*$", {line = 1, column = 2, message = 4, security = 3}},
