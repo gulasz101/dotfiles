@@ -53,6 +53,8 @@ return packer.startup(function(use)
 
     -- Telescope
     use "nvim-telescope/telescope.nvim"
+    -- use "BurntSushi/ripgrep"
+    -- use "sharkdp/fd"
 
     -- Treesitter
     use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
