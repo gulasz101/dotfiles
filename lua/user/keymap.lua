@@ -1,6 +1,6 @@
 local opts = {noremap = true, silent = true}
 
-local term_opts = {silent = true}
+-- local term_opts = {silent = true}
 
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
@@ -68,3 +68,5 @@ keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", opts)
 keymap("n", "<leader>fb", "<cmd>Telescope buffers<cr>", opts)
 keymap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", opts)
 
+-- Nvimtree
+keymap("n", "<leader>o", "<cmd>NvimTreeToggle<cr>", opts)

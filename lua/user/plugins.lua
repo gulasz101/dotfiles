@@ -39,6 +39,11 @@ return packer.startup(function(use)
     use "numToStr/Comment.nvim" -- Easily comment stuff
 
     use "akinsho/toggleterm.nvim"
+    use 'kyazdani42/nvim-web-devicons'
+    use 'kyazdani42/nvim-tree.lua'
+
+    -- Git
+    use "lewis6991/gitsigns.nvim"
 
     -- cmp plugins
     use "hrsh7th/nvim-cmp" -- The completion plugin

@@ -14,6 +14,8 @@ require "user.telescope"
 require "user.toggleterm"
 require "user.autopairs"
 require "user.comment"
+require "user.gitsigns"
+require "user.nvim-tree"
 -- require('cmp-config') -- base cmp conf
 -- require('lsp-handlers')
 -- require('snippets')
