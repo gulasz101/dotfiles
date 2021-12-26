@@ -10,6 +10,7 @@ require "user.colorscheme"
 require "user.cmp"
 require "user.lsp"
 require "user.treesitter"
+require "user.telescope"
 
 -- require('cmp-config') -- base cmp conf
 -- require('lsp-handlers')
