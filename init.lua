@@ -1,5 +1,4 @@
---require('settings') -- general settings
-
+-- require('settings') -- general settings
 require "user.options"
 require "user.keymap"
 -- require('packer-config') -- plugin manager
@@ -13,7 +12,7 @@ require "user.treesitter"
 require "user.telescope"
 
 require "user.toggleterm"
-
+require "user.autopairs"
 -- require('cmp-config') -- base cmp conf
 -- require('lsp-handlers')
 -- require('snippets')
