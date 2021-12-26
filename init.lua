@@ -12,6 +12,8 @@ require "user.lsp"
 require "user.treesitter"
 require "user.telescope"
 
+require "user.toggleterm"
+
 -- require('cmp-config') -- base cmp conf
 -- require('lsp-handlers')
 -- require('snippets')
