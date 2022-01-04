@@ -70,3 +70,9 @@ keymap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", opts)
 
 -- Nvimtree
 keymap("n", "<leader>o", "<cmd>NvimTreeToggle<cr>", opts)
+
+-- Bufferline
+keymap("n", "<leader>bp", "<cmd>BufferLinePick<cr>", opts)
+keymap("n", "<leader>bc", "<cmd>BufferLinePickClose<cr>", opts)
+keymap("n", "[b", "<cmd>BufferLineCycleNext<cr>", opts)
+keymap("n", "b]", "<cmd>BufferLineCyclePrev<cr>", opts)

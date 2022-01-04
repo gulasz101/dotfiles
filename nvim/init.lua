@@ -16,6 +16,7 @@ require "user.autopairs"
 require "user.comment"
 require "user.gitsigns"
 require "user.nvim-tree"
+require "user.bufferline"
 -- require('cmp-config') -- base cmp conf
 -- require('lsp-handlers')
 -- require('snippets')
