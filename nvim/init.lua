@@ -21,3 +21,5 @@ require "user.bufferline"
 -- require('lsp-handlers')
 -- require('snippets')
 -- require('luasnip-config')
+--
+require "user.evil_lualine"

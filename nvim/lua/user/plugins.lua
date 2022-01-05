@@ -43,6 +43,7 @@ return packer.startup(function(use)
     use 'kyazdani42/nvim-tree.lua'
     use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
     use "moll/vim-bbye"
+    use {'nvim-lualine/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true}}
 
     -- Git
     use "lewis6991/gitsigns.nvim"
