@@ -61,10 +61,10 @@ keymap("n", ",/", ":nohlsearch<CR>", opts)
 keymap("i", "jk", "<ESC>", opts)
 
 -- Disable arrows
-keymap("i", "<Left>", ":echoe \"Use h instead\"<CR>", opts)
-keymap("i", "<Right>", ":echoe \"Use l instead\"<CR>", opts)
-keymap("i", "<Up>", ":echoe \"Use k instead\"<CR>", opts)
-keymap("i", "<Down>", ":echoe \"Use j instead\"<CR>", opts)
+-- keymap("i", "<Left>", ":echoe \"Use h instead\"<CR>", opts)
+-- keymap("i", "<Right>", ":echoe \"Use l instead\"<CR>", opts)
+-- keymap("i", "<Up>", ":echoe \"Use k instead\"<CR>", opts)
+-- keymap("i", "<Down>", ":echoe \"Use j instead\"<CR>", opts)
 
 ------------
 -- Visual --
