@@ -3,7 +3,6 @@ require "user.options"
 require "user.keymap"
 -- require('packer-config') -- plugin manager
 require "user.plugins"
-require "user.colorscheme"
 
 -- require('lsp-config') -- base lsp conf
 require "user.cmp"
