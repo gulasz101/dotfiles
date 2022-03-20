@@ -44,6 +44,7 @@ return packer.startup(function(use)
     use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
     use "moll/vim-bbye"
     use {'nvim-lualine/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true}}
+    use "projekt0n/github-nvim-theme"
 
     -- Git
     use "lewis6991/gitsigns.nvim"
@@ -71,8 +72,6 @@ return packer.startup(function(use)
     -- Treesitter
     use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
     use "JoosepAlviste/nvim-ts-context-commentstring"
-
-    use "lunarvim/colorschemes"
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
