@@ -8,6 +8,7 @@
 - link:
     ~/.config/nvim: nvim
     ~/.config/alacritty: alacritty
+    ~/.config/kitty : kitty
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
